@@ -11,19 +11,27 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 
 		int ch;
+		
+		/*  
+		 * Adding 5 products initially
+		 */
+		
+		inventory.getVendingMachine().addProduct(new Product("Coke" , 10));
+		inventory.getVendingMachine().addProduct(new Product("Pepsi" , 12));
+		inventory.getVendingMachine().addProduct(new Product("Potato Chips" , 10));
+		inventory.getVendingMachine().addProduct(new Product("Fanta" , 8));
+		inventory.getVendingMachine().addProduct(new Product("Mountain Dew" , 9));
 
 		do {
-			System.out.println("Enter 1 - Display products , 2 - add products , 3 - buy Products , 4 - exit");
+			System.out.println("Enter 1 - Display products , 2 - add product , 3 - buy Products , 4 - exit");
 			ch = sc.nextInt();
 
 			if (ch == 1) {
 				inventory.getVendingMachine().getProducts().stream().forEach(System.out :: println);
+				System.out.println();
 			}
-			while (ch == 2) {
-				System.out.println("Enter 1 - add Product , -1 to stop");
-				int addProduct = sc.nextInt();
-				if (addProduct != 1)
-					break;
+			if(ch == 2) {
+//				System.out.println("Enter 1 - add Product , -1 to stop");
 
 				System.out.println("Enter Product name and price (seperated by new line)");
 				sc.nextLine();
